@@ -76,6 +76,8 @@ Make sure you're in the root directory:
 streamlit run resume_tracker/app.py
 
 Then open http://localhost:8501 in your browser.
+
+
 💡 Use Cases
 
     For job seekers to tailor resumes to specific roles
