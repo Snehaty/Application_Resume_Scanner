@@ -36,12 +36,12 @@ This tool uses AI (Google Gemini) to give human-like resume feedback, keyword su
 ### 🔹 Homepage – Upload Resume & Job Description
 
 (![Screenshot 2025-07-09 1329261](https://github.com/user-attachments/assets/e764d65a-d6a5-43a2-9c97-e6afebb1cec8)
-)
+
 
 ### 🔹 Result – AI Feedback & Match Score
 
 (![Screenshot 2025-07-09 1331542](https://github.com/user-attachments/assets/43f5b3a6-e95a-4164-864f-10aca0c4ba31)
-)
+
 
     
 
