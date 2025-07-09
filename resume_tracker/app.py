@@ -108,3 +108,36 @@ elif submit3:
         st.write(response)
     else:
         st.write("Please upload the resume")
+        st.markdown("---")
+st.subheader("📝 Resume Summary Rewriter ")
+
+with st.expander("💡 Improve your resume summary using AI"):
+    resume_summary = st.text_area("📄 Paste your existing resume summary here:", height=150)
+
+    if st.button("🔁 Rewrite Using Gemini"):
+        if input_text.strip() == "":
+            st.warning("⚠️ Please enter the Job Description above.")
+        elif resume_summary.strip() == "":
+            st.warning("⚠️ Please paste your current resume summary.")
+        else:
+            with st.spinner("Rewriting... please wait"):
+                prompt = f"""
+                You are an expert resume coach. Help improve the candidate's resume summary.
+
+                Resume Summary:
+                \"\"\"{resume_summary}\"\"\"
+
+                Job Description:
+                \"\"\"{input_text}\"\"\"
+
+                Please rewrite the resume summary to better match the job description.
+                Make it keyword-optimized, professional, and concise.
+                """
+
+                try:
+                    response = model.generate_content(prompt)
+                    st.success("✅ Rewritten Resume Summary:")
+                    st.text_area("✍️ Improved Version", response.text.strip(), height=150)
+                except Exception as e:
+                    st.error(f"Error while rewriting: {e}")
+
