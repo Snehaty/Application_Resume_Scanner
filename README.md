@@ -105,10 +105,11 @@ Then open http://localhost:8501 in your browser.
 
     For rewriting resume sections using AI
 
-🌐 Deployment (Optional)
+🌐 Deployment 
 
-You can deploy this app for free using Streamlit Cloud.
-Let me know if you'd like help deploying!
+🚀 Live Demo
+ 
+👉 https://applicationresumescanner-f5e5kwcmvqbkc7awivbhdm.streamlit.app/
 
 👩‍💻 Author
 
