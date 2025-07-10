@@ -1,5 +1,6 @@
 import streamlit as st
-import pdf2image
+from PyPDF2 import PdfReader
+
 import io
 import json
 import base64
@@ -18,23 +19,20 @@ def get_gemini_response_keywords(input, pdf_content, prompt):
     response = model.generate_content([input, pdf_content[0], prompt])
     return json.loads(response.text[8:-4])
 
+
 @st.cache_data()
 def input_pdf_setup(uploaded_file):
     if uploaded_file is not None:
-        images = pdf2image.convert_from_bytes(uploaded_file.read())
-        first_page = images[0]
-        img_byte_arr = io.BytesIO()
-        first_page.save(img_byte_arr, format='JPEG')
-        img_byte_arr = img_byte_arr.getvalue()
-        pdf_parts = [
-            {
-                "mime_type": "image/jpeg",
-                "data": base64.b64encode(img_byte_arr).decode()
-            }
-        ]
-        return pdf_parts
+        reader = PdfReader(uploaded_file)
+        text = ""
+        for page in reader.pages:
+            content = page.extract_text()
+            if content:
+                text += content + "\n"
+        return [text]
     else:
         raise FileNotFoundError("No file uploaded")
+
 
 # Streamlit App
 
